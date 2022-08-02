@@ -1,0 +1,28 @@
+<form class="container" [formGroup]="login">
+    <div class="line">
+        <span class="header">Login</span>
+        <span class="red small" *ngIf="login.invalid && login.dirty">Wrong e-mail or password</span>
+    </div><br>
+    <div class="line">
+        <label class="bold">Email:</label>
+        <label class="small">*required</label>
+    </div>
+    <div class="line">
+        <input class="input-field" type="email" placeholder="Enter e-mail" [formControl]="emailControl">
+    </div>
+    <!-- <span *ngIf="emailControl.invalid && emailControl.dirty">Please enter valid e-mail </span> -->
+
+    <div class="line">
+        <label class="bold">Password:</label>
+        <label class="small">*required</label>
+    </div>
+    <div class="line">
+        <input class="input-field" type="password" placeholder="Enter password" [formControl]="passwordControl">
+    </div><br>
+    <!-- <span *ngIf="passwordControl.invalid && passwordControl.dirty">Min length is 8 symbols</span> -->
+
+    <div class="line">
+        <a class="small" action="/reset-password">Forgot password?</a>
+        <button>Login</button>
+    </div>
+</form>
