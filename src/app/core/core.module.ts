@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseComponent } from './course/course.component';
 
 
 
@@ -15,6 +17,8 @@ import { RouterModule } from '@angular/router';
     MainPageComponent,
     LoginComponent,
     NewCourseComponent,
+    CoursesComponent,
+    CourseComponent,
   ],
   imports: [
     CommonModule,
@@ -25,10 +29,12 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports:[
+  exports: [
     MainPageComponent,
     LoginComponent,
     NewCourseComponent,
+    CoursesComponent,
+    CourseComponent,
   ]
 })
 export class CoreModule { }

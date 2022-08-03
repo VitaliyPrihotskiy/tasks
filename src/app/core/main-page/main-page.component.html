@@ -1,16 +1,25 @@
 <div class="body">
-<header>
-    <figure>
-        <img src="/assets/play.png">
-        <span>VIDEO COURSE</span>
-    </figure>
-</header>
-<main>
-    <!-- <app-login></app-login> -->
-    <app-new-course></app-new-course>
-    <router-outlet></router-outlet>
-</main>
-<footer>
-    Copyright Ⓒ Videocourses. All rights reserved
-</footer>
+    <header>
+        <figure>
+            <img src="/assets/play.png">
+            <span>VIDEO COURSE</span>
+        </figure>
+        <div class="auth">
+            <button>User login</button>
+            <button>Log out</button>
+        </div>
+    </header>
+    <div class="nav">
+        <a>Courses</a> / <b class="new-course">New Course</b>
+    </div>
+    <main>
+        <!-- <app-courses></app-courses> -->
+        <!-- <app-login></app-login> -->
+        <!-- <app-new-course></app-new-course> -->
+        <app-course></app-course>
+        <router-outlet></router-outlet>
+    </main>
+    <footer>
+        Copyright Ⓒ Videocourses. All rights reserved
+    </footer>
 </div>
