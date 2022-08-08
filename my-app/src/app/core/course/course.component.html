@@ -1,0 +1,16 @@
+<div class="body" *ngIf="course">
+    <div class="line">
+        <h2>{{course.header}}</h2>
+        <div>
+            <span>{{course.time}}</span>
+            <span>{{course.date}}</span>
+        </div>
+    </div>
+    <div class="line">
+        <p class="descr">{{course.description}}
+        <div class="btn">
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>
+    </div>
+</div>
