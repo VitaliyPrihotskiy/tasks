@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input , Output, EventEmitter} from '@angular/core';
 import { Course } from 'src/app/models/models';
 
 @Component({
@@ -8,5 +8,11 @@ import { Course } from 'src/app/models/models';
 })
 export class CourseComponent {
   @Input() course: Course | null = null;
+  @Output() deleteItemEvent = new EventEmitter<number>();
+
   constructor() { }
+
+  delete(id:number){
+    this.deleteItemEvent.emit(id);
+  }
 }
