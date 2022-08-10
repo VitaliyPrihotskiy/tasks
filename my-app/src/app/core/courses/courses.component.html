@@ -6,8 +6,10 @@
     <div class="right line">
         <button class="blue" (click)="addCourse()">Add course</button>
     </div>
-    <div class="line">
-        <app-course *ngFor="let item of filteredShownCourses" [course]="item"
+    <div class="line" *ngFor="let item of filteredShownCourses">
+        <app-course  
+        [course]="item"
+        (deleteItemEvent)="deleteCourse($event)"
         ></app-course>
     </div>
     <div class="line part">

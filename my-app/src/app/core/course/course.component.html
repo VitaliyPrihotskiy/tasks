@@ -3,14 +3,14 @@
         <h2>{{course.header}}</h2>
         <div>
             <span>{{course.time}}</span>
-            <span>{{course.date}}</span>
+            <span>{{course.date|date :'shortDate'}}</span>
         </div>
     </div>
     <div class="line">
         <p class="descr">{{course.description}}
         <div class="btn">
             <button>Edit</button>
-            <button>Delete</button>
+            <button (click)="delete(course.id)">Delete</button>
         </div>
     </div>
 </div>

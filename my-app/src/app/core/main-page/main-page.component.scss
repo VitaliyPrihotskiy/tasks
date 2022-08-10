@@ -8,6 +8,8 @@ footer {
 }
 
 footer {
+    position: sticky;
+    bottom: 0px;
     color: white;
     display: flex;
     justify-content: flex-end;
@@ -15,10 +17,11 @@ footer {
 }
 
 main {
-    height: 729px;
+    padding: 10px;
+    height: auto;
+    min-height: 699px;
     background-color: aliceblue;
     display: flex;
-    align-items: center;
     justify-content: center;
 
 }
