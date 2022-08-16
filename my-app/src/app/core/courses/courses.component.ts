@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CdkAriaLive } from '@angular/cdk/a11y';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { timeInterval } from 'rxjs';
 import { getCourses } from 'src/app/constants/courses-list';
 import { Course } from 'src/app/models/models';
@@ -14,19 +15,25 @@ export class CoursesComponent implements OnInit {
   filteredCourses: Course[] = [];
   count = 3;
   filteredShownCourses: Course[] = [];
-  constructor() { }
+  constructor(private cd:ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.courses = getCourses(10)
-    this.refresh()
+    this.courses = getCourses(10);
+    this.refresh();
   }
+
   filter(input: string): void {
     let itemList = this.courses.slice();
     input = input.toLowerCase();
     let twoMatches = itemList.filter(e => e.header.toLowerCase().includes(input) && e.description.toLowerCase().includes(input));
+    console.log(twoMatches)
+    console.log(twoMatches.length)
     let titleMatches = itemList.filter(e => e.header.toLowerCase().includes(input) && !twoMatches.includes(e));
+    console.log(titleMatches)
+    console.log(titleMatches.length)
     let summaryMatches = itemList.filter(e => e.description.toLowerCase().includes(input) && !twoMatches.includes(e))
     this.filteredCourses = [...twoMatches, ...titleMatches, ...summaryMatches];
+    this.filteredShownCourses = this.filteredCourses.slice().splice(0, this.count);
   }
 
   loadMore(): void {
@@ -43,6 +50,7 @@ export class CoursesComponent implements OnInit {
   refresh(): void {
     this.filteredCourses = this.courses;
     this.filteredShownCourses = this.filteredCourses.slice().splice(0, this.count);
+    this.cd.markForCheck();
   }
 
   deleteCourse(id: number): void {

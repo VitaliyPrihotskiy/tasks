@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   selector: 'app-new-course',
   templateUrl: './new-course.component.html',
   styleUrls: ['./new-course.component.scss'],
+  providers: [FormBuilder],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewCourseComponent implements OnInit {
